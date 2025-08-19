@@ -1,106 +1,32 @@
-/**
-* customized divs (containers) and framed objects (background and frame image).
-*/
+/* containers_and_frames.css */
+.container { width: min(1100px, 94%); margin: 0 auto; padding: 12px; }
+.topbar { padding: 22px 0; text-align: center; }
+.subtitle { color: #9ca3af; margin-top: 6px; font-size: 0.95rem; }
+.panel { background: #0f172a; border: 1px solid #1f2438; border-radius: 12px; padding: 14px; margin: 12px 0; box-shadow: 0 8px 20px rgba(0,0,0,0.45); }
+.main-board { max-width: 1000px; margin-top: 10px; }
+.score-panel { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.score-box { background:#0b1220; padding:12px; border-radius:10px; text-align:center; }
+.score-box .muted { display:block; color:#9ca3af; font-size:.9rem; }
+.score-box strong { font-size:1.6rem; margin-top:6px; display:block; color:#e5e7eb; }
 
-/* game div without background image*/
-.rpgui-container {
-  /* position style and default z */
-  position: fixed;
-  z-index: 10;
+.arena { display:grid; grid-template-columns:1fr auto 1fr; gap:12px; align-items:center; text-align:center; }
+.slot h3 { color:#9ca3af; font-size:0.95rem; margin-bottom:8px; }
+.card { height:160px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:1.2rem; letter-spacing:.4px; border:2px dashed #26314a; background: linear-gradient(180deg,#071024,#0b1220); color:#fff; }
+.card--idle { opacity:.6; }
+.versus { font-weight:900; letter-spacing:2px; color:#9ca3af; opacity:.7 }
 
-  overflow: show;
-}
+.actions { display:flex; flex-direction:column; gap:12px; align-items:center; }
+.choices { display:flex; gap:12px; flex-wrap:wrap; justify-content:center }
+.controls { display:flex; gap:10px; align-items:center; justify-content:center; margin-top:6px; }
 
-/* game div with background image*/
-.framed {
-  /* border */
-  border-style: solid;
-  border-image-source: url("../assets/rpg/border-image.png");
-  border-image-repeat: repeat;
-  border-image-slice: 6 6 6 6;
-  border-image-width: 18px;
-  border-width: 15px;
-  padding: 12px;
+.history-panel details summary { cursor:pointer; color:#9ca3af; font-weight:600; }
+.history-list { margin-top:10px; display:grid; gap:8px }
+.history-list li { background:#0b1220; padding:8px; border-radius:8px; border:1px solid #152036; color:#d1d5db; }
+.footer { padding:18px 0; color:#9ca3af; text-align:center; margin-top:16px; }
 
-  /* internal border */
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-
-  /* background */
-  background: url("../assets/rpg/background-image.png") repeat repeat;
-  background-clip: padding-box;
-  background-origin: padding-box;
-  background-position: center;
-}
-
-/* game div with golden background image*/
-.framed-golden {
-  /* border */
-  border-style: solid;
-  border-image-source: url("../assets/rpg/border-image-golden.png");
-  border-image-repeat: repeat;
-  border-image-slice: 4 4 4 4;
-  border-image-width: 18px;
-  border-width: 15px;
-  padding: 12px;
-
-  /* internal border */
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-
-  /* background */
-  background: url("../assets/rpg/background-image-golden.png") repeat repeat;
-  background-clip: padding-box;
-  background-origin: padding-box;
-  background-position: center;
-}
-
-/* game div with golden2 background image*/
-.framed-golden-2 {
-  /* border */
-  border-style: solid;
-  border-image-source: url("../assets/rpg/border-image-golden2.png");
-  border-image-repeat: repeat;
-  border-image-slice: 8 8 8 8;
-  border-image-width: 18px;
-  border-width: 15px;
-  padding: 12px;
-
-  /* internal border */
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-
-  /* background */
-  background: url("../assets/rpg/background-image-golden2.png") repeat repeat;
-  background-clip: padding-box;
-  background-origin: padding-box;
-  background-position: center;
-}
-
-/* game div with soft grey background image*/
-.framed-grey {
-  position: relative;
-
-  /* border */
-  border-style: solid;
-  border-image-source: url("../assets/rpg/border-image-grey.png");
-  border-image-repeat: repeat;
-  border-image-slice: 3 3 3 3;
-  border-image-width: 7px;
-  border-width: 7px;
-  padding: 12px;
-
-  /* internal border */
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-
-  /* background */
-  background: url("../assets/rpg/background-image-grey.png") repeat repeat;
-  background-clip: padding-box;
-  background-origin: padding-box;
-  background-position: center;
+@media (max-width: 780px) {
+  .arena { grid-template-columns: 1fr; }
+  .versus { order:-1; margin-bottom:6px }
+  .card { height:120px }
+  .score-panel { grid-template-columns: repeat(3, 1fr); gap:8px; }
 }
