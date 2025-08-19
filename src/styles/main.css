@@ -1,0 +1,20 @@
+/* main.css - variações de cor e pequenos ajustes */
+:root{
+  --bg:#070b17; --panel:#0f172a; --muted:#9ca3af; --text:#e5e7eb; --accent:#7c3aed;
+}
+body { background: linear-gradient(180deg,var(--bg), #071028); color:var(--text); min-height:100vh; }
+h1 { font-size:1.6rem; margin-bottom:6px; color:#fff }
+.container { padding-left:12px; padding-right:12px; }
+.result { text-align:center; font-weight:700; margin-top:10px; }
+.result--win { color:#10b981 }  /* verde */
+.result--lose { color:#ef4444 } /* vermelho */
+.result--draw { color:#f59e0b } /* amarelo */
+
+.card--monster { border-color:#7f1d1d; background: linear-gradient(180deg,#340808,#1b0610) }
+.card--trap    { border-color:#7a4b03; background: linear-gradient(180deg,#2b1604,#161006) }
+.card--spell   { border-color:#0a4a85; background: linear-gradient(180deg,#081a2b,#051022) }
+
+@media (max-width: 480px) {
+  .btn { min-width: 100px; padding: 8px 10px }
+  .score-box strong { font-size:1.2rem }
+}
