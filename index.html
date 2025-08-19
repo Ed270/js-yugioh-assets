@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Yu-Jo-Ken-Po • Jogo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>Yu-Jo-Ken-Po</h1>
+    <p class="subtitle">Monstro vence Armadilha • Armadilha vence Magia • Magia vence Monstro</p>
+  </header>
+
+  <main class="container">
+    <section class="board">
+      <div class="score">
+        <div class="score__box">
+          <span>Jogador</span>
+          <strong id="score-player">0</strong>
+        </div>
+        <div class="score__box">
+          <span>Empates</span>
+          <strong id="score-draws">0</strong>
+        </div>
+        <div class="score__box">
+          <span>CPU</span>
+          <strong id="score-cpu">0</strong>
+        </div>
+      </div>
+
+      <div class="arena">
+        <div class="slot">
+          <h3>Você</h3>
+          <div id="card-player" class="card card--idle">?</div>
+        </div>
+        <div class="versus">VS</div>
+        <div class="slot">
+          <h3>CPU</h3>
+          <div id="card-cpu" class="card card--idle">?</div>
+        </div>
+      </div>
+
+      <p id="result" class="result">Faça sua jogada!</p>
+
+      <div class="choices">
+        <button class="choice" data-type="monster">
+          <span class="badge badge--monster">Monstro</span>
+          <small>ATK direto!</small>
+        </button>
+        <button class="choice" data-type="trap">
+          <span class="badge badge--trap">Armadilha</span>
+          <small>Contra-efeito!</small>
+        </button>
+        <button class="choice" data-type="spell">
+          <span class="badge badge--spell">Magia</span>
+          <small>Buff/Debuff!</small>
+        </button>
+      </div>
+
+      <div class="toolbar">
+        <label>Melhor de:
+          <select id="best-of">
+            <option value="3">3</option>
+            <option value="5" selected>5</option>
+            <option value="7">7</option>
+          </select>
+        </label>
+        <button id="reset">Reiniciar</button>
+      </div>
+
+      <details class="history">
+        <summary>Histórico de rodadas</summary>
+        <ol id="history-list"></ol>
+      </details>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <small>© Yu-Jo-Ken-Po — HTML/CSS/JS puro</small>
+  </footer>
+
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>
