@@ -1,85 +1,98 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Yu-Jo-Ken-Po • Jogo</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>Yu-Jo-Ken-Po • Mini Jogo</title>
+  <!-- CSS modular -->
+  <link rel="stylesheet" href="styles/reset.css">
+  <link rel="stylesheet" href="styles/containers_and_frames.css">
+  <link rel="stylesheet" href="styles/buttons.css">
+  <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
-  <header class="topbar">
-    <h1>Yu-Jo-Ken-Po</h1>
-    <p class="subtitle">Monstro vence Armadilha • Armadilha vence Magia • Magia vence Monstro</p>
+  <header class="topbar" role="banner">
+    <div class="container">
+      <h1>Yu-Jo-Ken-Po</h1>
+      <p class="subtitle">Monstro vence Armadilha • Armadilha vence Magia • Magia vence Monstro</p>
+    </div>
   </header>
 
-  <main class="container">
-    <section class="board">
-      <div class="score">
-        <div class="score__box">
-          <span>Jogador</span>
-          <strong id="score-player">0</strong>
-        </div>
-        <div class="score__box">
-          <span>Empates</span>
-          <strong id="score-draws">0</strong>
-        </div>
-        <div class="score__box">
-          <span>CPU</span>
-          <strong id="score-cpu">0</strong>
-        </div>
+  <main class="container main-board" role="main" aria-labelledby="game-title">
+    <h2 id="game-title" class="sr-only">Área de jogo Yu-Jo-Ken-Po</h2>
+
+    <section class="panel score-panel" aria-label="Placar">
+      <div class="score-box">
+        <span class="muted">Jogador</span>
+        <strong id="score-player">0</strong>
+      </div>
+      <div class="score-box">
+        <span class="muted">Empates</span>
+        <strong id="score-draws">0</strong>
+      </div>
+      <div class="score-box">
+        <span class="muted">CPU</span>
+        <strong id="score-cpu">0</strong>
+      </div>
+    </section>
+
+    <section class="panel arena" aria-live="polite">
+      <div class="slot">
+        <h3>Você</h3>
+        <div id="card-player" class="card card--idle">?</div>
       </div>
 
-      <div class="arena">
-        <div class="slot">
-          <h3>Você</h3>
-          <div id="card-player" class="card card--idle">?</div>
-        </div>
-        <div class="versus">VS</div>
-        <div class="slot">
-          <h3>CPU</h3>
-          <div id="card-cpu" class="card card--idle">?</div>
-        </div>
+      <div class="versus" aria-hidden="true">VS</div>
+
+      <div class="slot">
+        <h3>CPU</h3>
+        <div id="card-cpu" class="card card--idle">?</div>
       </div>
 
       <p id="result" class="result">Faça sua jogada!</p>
+    </section>
 
-      <div class="choices">
-        <button class="choice" data-type="monster">
+    <section class="panel actions" aria-label="Ações do jogador">
+      <div class="choices" role="group" aria-label="Escolha a sua carta">
+        <button class="btn choice" data-type="monster" aria-pressed="false">
           <span class="badge badge--monster">Monstro</span>
-          <small>ATK direto!</small>
+          <small>ATK direto</small>
         </button>
-        <button class="choice" data-type="trap">
+        <button class="btn choice" data-type="trap" aria-pressed="false">
           <span class="badge badge--trap">Armadilha</span>
-          <small>Contra-efeito!</small>
+          <small>Contra-efeito</small>
         </button>
-        <button class="choice" data-type="spell">
+        <button class="btn choice" data-type="spell" aria-pressed="false">
           <span class="badge badge--spell">Magia</span>
-          <small>Buff/Debuff!</small>
+          <small>Buff/Debuff</small>
         </button>
       </div>
 
-      <div class="toolbar">
-        <label>Melhor de:
-          <select id="best-of">
-            <option value="3">3</option>
-            <option value="5" selected>5</option>
-            <option value="7">7</option>
-          </select>
-        </label>
-        <button id="reset">Reiniciar</button>
+      <div class="controls">
+        <label for="best-of">Melhor de</label>
+        <select id="best-of" aria-label="Formato da partida">
+          <option value="3">3</option>
+          <option value="5" selected>5</option>
+          <option value="7">7</option>
+        </select>
+        <button id="reset" class="btn">Reiniciar</button>
       </div>
+    </section>
 
-      <details class="history">
+    <section class="panel history-panel">
+      <details>
         <summary>Histórico de rodadas</summary>
-        <ol id="history-list"></ol>
+        <ol id="history-list" class="history-list" aria-live="polite"></ol>
       </details>
     </section>
   </main>
 
-  <footer class="footer">
-    <small>© Yu-Jo-Ken-Po — HTML/CSS/JS puro</small>
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <small>© Yu-Jo-Ken-Po — Demo educativa • Feito por ti</small>
+    </div>
   </footer>
 
-  <script type="module" src="./js/main.js"></script>
+  <script src="engine.js"></script>
 </body>
 </html>
